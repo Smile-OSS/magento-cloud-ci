@@ -1,7 +1,7 @@
 FROM php:7.4-cli-alpine
 
 LABEL maintainer "Serhii Boremchuk <sebor@smile.fr>"
-LABEL version="v1.0.4"
+LABEL version="v1.0.5"
 
 USER root
 ENV HOME '/root'
