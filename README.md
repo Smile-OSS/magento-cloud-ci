@@ -19,5 +19,7 @@ Using latest PHP 7.4 on Alpine Linux
     - |
       # Dump from environment:
       echo "START THE DUMP"
-      magento-cloud db:dump -z -f "${DEPLOY_ENV}-${DATE_}".sql.gz -p ${PROJECT} -e ${DEPLOY_ENV} -v
+      magento-cloud db:dump -z -f "${DEPLOY_ENV}-${DATE_}".sql.gz -p ${PROJECT} -e ${DEPLOY_ENV}
 ```
+
+✊ 🇺🇦
