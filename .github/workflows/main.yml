@@ -6,9 +6,9 @@
 name: Publish Docker image
 
 on:
-  push:
-  # release:
-  #   types: [published]
+  # push:
+  release:
+    types: [published]
 
 jobs:
   push_to_registry:
@@ -49,14 +49,14 @@ jobs:
           echo "tags:      ${{ steps.meta.outputs.tags }}"
           echo "labels:    ${{ steps.meta.outputs.labels }}"
 
-      # - name: Build and push Docker image
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: ./docker
-      #     platforms: ${{ steps.buildx.outputs.platforms }}
-      #     push: true
-      #     tags: ${{ steps.meta.outputs.tags }}
-      #     labels: ${{ steps.meta.outputs.labels }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./docker
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
