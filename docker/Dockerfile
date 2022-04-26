@@ -1,7 +1,7 @@
 FROM php:7.4-cli-alpine
 
 LABEL maintainer "Serhii Boremchuk <sebor@smile.fr>"
-LABEL version="v1.0.7"
+LABEL version="v1.0.8"
 
 USER root
 ENV HOME '/root'
@@ -38,7 +38,7 @@ RUN chmod +x $HOME/magento-cloud.sh &&\
 RUN mkdir -p ${HOME}/.ssh
 ## Skip host key verification
 RUN echo "Host *" >> ${HOME}/.ssh/config && \
-    echo "    StrictHostKeyChecking no\n" >> ${HOME}/.ssh/config \
+    echo "    StrictHostKeyChecking no" >> ${HOME}/.ssh/config \
     echo -e "Host *.magento.cloud *.magentosite.cloud" >> ${HOME}/.ssh/config \
     echo "    UpdateHostKeys no" >> ${HOME}/.ssh/config
 
